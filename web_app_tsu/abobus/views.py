@@ -96,6 +96,7 @@ def login_view(request):
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
 
+
 @login_required
 def investor_cabinet(request):
     projects = Project.objects.all()
