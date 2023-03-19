@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Регистрация</title>
+</head>
+<body>
+  <h1>Регистрация</h1>
+  <form method="post">
+    {% csrf_token %}
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="lastname">Фамилия:</label>
+    <input type="text" id="lastname" name="lastname"><br><br>
+    <label for="name">email:</label>
+    <input type="text" id="email" name="email"><br><br>
+    <label for="role">Роль:</label>
+    <input type="radio" id="role_student" name="role" value="student" checked>
+    <label for="role_student">Студент</label>
+    <input type="radio" id="role_investor" name="role" value="investor">
+    <label for="role_investor">Инвестор</label><br><br>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <label for="password_confirm">Повторите пароль:</label>
+    <input type="password" id="password_confirm" name="password_confirm"><br><br>
+    <input type="submit" value="Зарегистрироваться">
+  </form>
+</body>
+</html>

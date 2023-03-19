@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Личный кабинет {{request.user.username}}</title>
+</head>
+<body>
+	<h1>Личный кабинет {{request.user.username}}</h1>
+    <a href="{% url 'create_project' %}">Создать проект</a>
+	<h2>Список ваших проектов:</h2>
+	<ul>
+	{% for project in projects %}
+		<li>{{ project.title }} - {{ project.description }} - {{ project.payback_period }} - {{ project.goals }} - {{ project.intended_outcome }}</li>
+	{% endfor %}
+	</ul>
+</body>
+</html>

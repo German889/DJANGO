@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Создание проекта</title>
+</head>
+<body>
+	<h1>Создание проекта</h1>
+	<form method="post">
+		{% csrf_token %}
+		<label for="id_title">Название:</label>
+		<input type="text" name="title" id="id_title"><br><br>
+
+		<label for="id_description">Описание:</label>
+		<textarea name="description" id="id_description"></textarea><br><br>
+
+		<label for="id_payback_period">Срок окупаемости:</label>
+		<input type="number" name="payback_period" id="id_payback_period"><br><br>
+
+		<label for="id_goals">Цели:</label>
+		<textarea name="goals" id="id_goals"></textarea><br><br>
+
+		<label for="id_intended_outcome">Ожидаемый результат:</label>
+		<textarea name="intended_outcome" id="id_intended_outcome"></textarea><br><br>
+
+		<input type="submit" value="Создать проект">
+	</form>
+</body>
+</html>
