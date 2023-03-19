@@ -28,5 +28,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('personal_cabinet/', personal_cabinet, name='personal_cabinet'),
     path('create_project/', create_project_view, name='create_project'),
-    path('login', login_view, name = 'login'),
+    path('login/', login_view, name = 'login'),
+    path('investor_cabinet/',investor_cabinet, name='investor_cabinet')
 ]

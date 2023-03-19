@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Личный кабинет инвестора</title>
+</head>
+<body>
+	<h1>Личный кабинет инвестора</h1>
+	<h2>Список проектов:</h2>
+	<ul>
+	{% for project in projects %}
+		<li>{{ project.title }} - {{ project.description }} - {{ project.payback_period }} - {{ project.goals }} - {{ project.intended_outcome }}</li>
+	{% endfor %}
+	</ul>
+</body>
+</html>

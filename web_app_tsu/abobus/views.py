@@ -88,7 +88,15 @@ def login_view(request):
             if user is not None:
                 # Устанавливаем сессию и редиректим на нужную страницу
                 login(request, user)
-                return redirect('personal_cabinet')
+                if user.profile.user_type == 'INVESTOR':
+                    return redirect('investor_cabinet')
+                else:
+                    return redirect('personal_cabinet')
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+@login_required
+def investor_cabinet(request):
+    projects = Project.objects.all()
+    return render(request, 'investor_cabinet.html', {'projects': projects})
