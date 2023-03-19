@@ -1,9 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import User, Group
 
-student_group = Group.objects.get_or_create(name='Студенты')
-investor_group = Group.objects.get_or_create(name='Инвесторы')
 
 class Profile(models.Model):
     USER_TYPE_CHOICES = [
