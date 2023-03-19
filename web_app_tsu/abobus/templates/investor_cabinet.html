@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Личный кабинет инвестора</title>
+    <title>Личный кабинет инвестора</title>
 </head>
 <body>
-	<h1>Личный кабинет инвестора</h1>
-	<h2>Список проектов:</h2>
-	<ul>
-	{% for project in projects %}
-		<li>{{ project.title }} - {{ project.description }} - {{ project.payback_period }} - {{ project.goals }} - {{ project.intended_outcome }}</li>
-	{% endfor %}
-	</ul>
+    <h1>Личный кабинет инвестора</h1>
+    <h2>Список проектов:</h2>
+    <ul>
+        <li><a href="?order_by=title">Сортировать по названию</a></li>
+        <li><a href="?order_by=description">Сортировать по описанию</a></li>
+        <li><a href="?order_by=payback_period">Сортировать по периоду окупаемости</a></li>
+        <li><a href="?order_by=goals">Сортировать по целям проекта</a></li>
+        <li><a href="?order_by=intended_outcome">Сортировать по предполагаемому результату</a></li>
+    </ul>
+    <ul>
+    {% for project in projects %}
+        <li>{{ project.title }} - {{ project.description }} - {{ project.payback_period }} - {{ project.goals }} - {{ project.intended_outcome }}</li>
+    {% endfor %}
+    </ul>
 </body>
 </html>
