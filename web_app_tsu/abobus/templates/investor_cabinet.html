@@ -1,22 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Личный кабинет инвестора</title>
+  <title>Личный кабинет инвестора</title>
+  <!-- Подключаем Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Подключаем наш CSS файл -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Личный кабинет инвестора</h1>
-    <h2>Список проектов:</h2>
-    <ul>
-        <li><a href="?order_by=title">Сортировать по названию</a></li>
-        <li><a href="?order_by=description">Сортировать по описанию</a></li>
-        <li><a href="?order_by=payback_period">Сортировать по периоду окупаемости</a></li>
-        <li><a href="?order_by=goals">Сортировать по целям проекта</a></li>
-        <li><a href="?order_by=intended_outcome">Сортировать по предполагаемому результату</a></li>
+  <!-- Шапка страницы -->
+  <nav>
+    <div class="nav-wrapper blue">
+      <a href="#" class="brand-logo center">Личный кабинет инвестора</a>
+    </div>
+  </nav>
+  
+  <form class="col s12" method="get">
+    <div class="input-field col s4">
+      <select name="sort_by">
+        <option value="title">Сортировать по названию</option>
+        <option value="description">Сортировать по описанию</option>
+        <option value="payback_period">Сортировать по периоду окупаемости</option>
+        <option value="goals">Сортировать по целям проекта</option>
+        <option value="intended_outcome">Сортировать по предполагаемому результату</option>
+      </select>
+      <label>Сортировка</label>
+    </div>
+    <div class="input-field col s2">
+      <button class="btn waves-effect waves-light blue" type="submit">Сортировать</button>
+    </div>
+  </form>
+  
+    
+    <!-- Список проектов -->
+    <ul class="collection">
+      {% for project in projects %}
+      <li class="collection-item">
+        <div>
+          <h5>{{ project.title }}</h5>
+          <p>{{ project.description }}</p>
+          <p>Период окупаемости: {{ project.payback_period }}</p>
+          <p>Цели проекта: {{ project.goals }}</p>
+          <p>Предполагаемый результат: {{ project.intended_outcome }}</p>
+        </div>
+      </li>
+      {% endfor %}
     </ul>
-    <ul>
-    {% for project in projects %}
-        <li>{{ project.title }} - {{ project.description }} - {{ project.payback_period }} - {{ project.goals }} - {{ project.intended_outcome }}</li>
-    {% endfor %}
-    </ul>
+  </div>
+  
+  <!-- Подключаем Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Инициализируем select и другие элементы -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+      var elems2 = document.querySelectorAll('.datepicker');
+      var instances2 = M.Datepicker.init(elems2);
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  $('select[name="sort_by"]').on('change', function() {
+    var sort_by = $(this).val();
+    if (sort_by) {
+      window.location.href = window.location.pathname + '?sort_by=' + sort_by;
+    }
+  });
+  });
+  </script>
+  
 </body>
 </html>

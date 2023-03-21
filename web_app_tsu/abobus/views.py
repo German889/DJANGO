@@ -97,9 +97,14 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 
+# @login_required
+# def investor_cabinet(request):
+    # order_by = request.GET.get('order_by', 'title')
+    # projects = Project.objects.order_by(order_by)
+    # return render(request, 'investor_cabinet.html', {'projects': projects})
 @login_required
 def investor_cabinet(request):
-    order_by = request.GET.get('order_by', 'title')
-    projects = Project.objects.order_by(order_by)
-    return render(request, 'investor_cabinet.html', {'projects': projects})
-
+    sort_by = request.GET.get('sort_by', 'title')
+    projects = Project.objects.all().order_by(sort_by)
+    context = {'projects': projects}
+    return render(request, 'investor_cabinet.html', context)

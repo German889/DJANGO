@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}My Website{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Подключение стилей Material Design Lite -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Подключение библиотеки Material Design Lite -->
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- Подключение иконок Material Design Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Подключение вашего файла со стилями -->
+    <link rel="stylesheet" href="{% block css %}{% endblock %}">
 </head>
 <body>
-    <header>
-        <!-- Верхняя часть сайта (например, логотип и навигационное меню) -->
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-        <!-- Нижняя часть сайта (например, контактная информация и ссылки на социальные сети) -->
-    </footer>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
